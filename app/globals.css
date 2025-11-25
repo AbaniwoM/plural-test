@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Responsiveness */
+@media screen and (max-width: 320px) {
+  .landingComponents {
+    margin-top: 3.9rem;
+  }
+  .landingBtns {
+    font-size: 0.6rem;
+    padding: 0.7rem;
+  }
+  .landingTable {
+    font-size: 0.7rem;
+  }
+  .landingText {
+    font-size: 0.9rem;
+  }
+  .tableStatus {
+    margin-left: 7rem;
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  .landingComponents {
+    margin-top: 3.9rem;
+  }
+  .landingBtns {
+    font-size: 0.7rem;
+    padding: 0.9rem;
+  }
+  .landingTable {
+    font-size: 0.7rem;
+  }
+  .landingText {
+    font-size: 1rem;
+  }
+  .tableStatus {
+    margin-left: 7rem;
+  }
+}
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .landingComponents {
+    margin-top: 4rem;
+  }
+  .landingBtns {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+  .patientBtns {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+  .landingTable {
+    font-size: 0.8rem;
+  }
+  .landingText {
+    font-size: 1rem;
+  }
+  .tableStatus {
+    margin-left: 7rem;
+  }
+  .appointmentModal {
+    width: 23rem;
+    height: 33rem;
+    overflow-y: visible;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .tableStatus {
+    margin-left: 7rem;
+  }
+  .appointmentModal {
+    width: 43rem;
+    height: 43rem;
+    overflow-y: visible;
+  }
+  .patientModal {
+    width: 44rem;
+  }
+  .patientBtn {
+    font-size: 0.7rem;
+  }
+}

@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import { 
   Search, Plus, Calendar, ChevronDown, MoreVertical, Fingerprint,
-  Wallet, PieChart
+  Wallet, PieChart, ChevronLeft, ChevronRight, ArrowUpDown
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 // --- IMPORT COMPONENTS ---
 import NewPatient, { NewPatientData } from '../new-patient/page'; 
-import NewAppointment from '../new-appointment/page'; // <-- Make sure path is correct
+import NewAppointment from '../new-appointment/page';
 
 // --- Utility for Tailwind classes ---
 function cn(...inputs: ClassValue[]) {
@@ -29,9 +29,7 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
-      {/* Click outside to close */}
       <div className="absolute inset-0" onClick={onClose}></div>
-      {/* Modal Content */}
       <div className="relative z-10 animate-in zoom-in-95 duration-200">
         {children}
       </div>
@@ -185,6 +183,29 @@ export default function PatientDashboard() {
                 Create appointment
                 <div className="bg-white/20 rounded-md p-0.5"><Calendar size={12} /></div>
             </button>
+        </div>
+      </div>
+
+      {/* PAGINATION CONTROLS (ADDED SECTION) */}
+      <div className="flex flex-col md:flex-row justify-between items-end md:items-center mb-4 gap-4">
+        <div className="flex items-center gap-6">
+            <h2 className="text-xl font-bold text-[#0A0B3B]">Appointments</h2>
+            
+            <div className="hidden md:flex items-center gap-2 text-sm font-medium cursor-pointer hover:bg-gray-100 px-2 py-1 rounded-md text-gray-600">
+                All clinics <ChevronDown size={14} />
+            </div>
+            
+            <div className="flex items-center gap-2 text-sm font-medium text-[#0A0B3B] cursor-pointer hover:bg-gray-100 px-2 py-1 rounded-md">
+                <ArrowUpDown size={14} className="text-blue-600" /> Sort by
+            </div>
+        </div>
+
+        <div className="flex items-center gap-2 text-sm text-gray-500">
+            <span>1 - 20 <span className="text-gray-400">of</span> 197</span>
+            <div className="flex gap-1 ml-2">
+                <button className="p-1 rounded bg-gray-100 hover:bg-gray-200"><ChevronLeft size={16} /></button>
+                <button className="p-1 rounded bg-white hover:bg-gray-100"><ChevronRight size={16} /></button>
+            </div>
         </div>
       </div>
 
